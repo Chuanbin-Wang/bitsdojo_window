@@ -210,7 +210,7 @@ void setWindowTitle(GtkWindow* window, const gchar* title) {
 }
 
 void setTopmost(GtkWindow* window, int topmost){
-    window->set_keep_above(topmost == 1);
+    gtk_window_set_keep_above(topmost == 1 ? TRUE : FALSE);
 }
 
 }  // namespace bitsdojo_window

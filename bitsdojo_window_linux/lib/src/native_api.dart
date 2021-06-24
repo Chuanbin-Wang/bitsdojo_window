@@ -96,9 +96,7 @@ final DSetWindowTitle setWindowTitle = _theAPI.ref.setWindowTitle.asFunction();
 // setTopmost
 typedef Void TSetTopmost(IntPtr window, Int32 topmost);
 typedef DSetTopmost = void Function(int window, int topmost);
-final DSetTopmost _setTopmost = _theAPI.ref.setTopMost.asFunction();
-void setTopmost(int window, bool topmost) =>
-    _setTopmost(window, topmost ? 1 : 0);
+final DSetTopmost setTopmost = _theAPI.ref.setTopMost.asFunction();
 
 class BDWAPI extends Struct {
   external Pointer<NativeFunction<TGetAppWindowHandle>> getAppWindowHandle;
@@ -111,13 +109,13 @@ class BDWAPI extends Struct {
   external Pointer<NativeFunction<TSetRect>> setRect;
   external Pointer<NativeFunction<TSetMinSize>> setMinSize;
   external Pointer<NativeFunction<TSetMaxSize>> setMaxSize;
-  external Pointer<NativeFunction<TSetTopmost>> setTopMost;
   external Pointer<NativeFunction<TShowWindow>> showWindow;
   external Pointer<NativeFunction<THideWindow>> hideWindow;
   external Pointer<NativeFunction<TMinimizeWindow>> minimizeWindow;
   external Pointer<NativeFunction<TMaximizeWindow>> maximizeWindow;
   external Pointer<NativeFunction<TUnmaximizeWindow>> unmaximizeWindow;
   external Pointer<NativeFunction<TSetWindowTitle>> setWindowTitle;
+  external Pointer<NativeFunction<TSetTopmost>> setTopMost;
 }
 
 typedef Pointer<BDWAPI> TBitsdojoWindowAPI();
