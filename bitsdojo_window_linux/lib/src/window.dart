@@ -202,6 +202,12 @@ class GtkWindow extends DesktopWindow {
   }
 
   @override
+  set topmost(bool topmost) {
+    if (!isValidHandle(handle, "set topmost")) return;
+    native.setTopmost(handle!, topmost);
+  }
+
+  @override
   set size(Size newSize) {
     if (!isValidHandle(handle, "set size")) return;
 

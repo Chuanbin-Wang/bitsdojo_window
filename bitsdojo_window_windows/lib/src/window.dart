@@ -271,6 +271,14 @@ class WinWindow extends WinDesktopWindow {
     PostMessage(handle!, WM_SYSCOMMAND, SC_MINIMIZE, 0);
   }
 
+  @override
+  set topmost(bool topmost) {
+    if (!isValidHandle(handle, "topmost")) return;
+
+    // HWND_TOPMOST (HWND)-1
+    SetWindowPos(handle!, -1, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
+  }
+
   void restore() {
     if (!isValidHandle(handle, "restore")) return;
     PostMessage(handle!, WM_SYSCOMMAND, SC_RESTORE, 0);

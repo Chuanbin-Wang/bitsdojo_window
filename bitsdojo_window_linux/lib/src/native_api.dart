@@ -93,6 +93,13 @@ typedef Void TSetWindowTitle(IntPtr window, Pointer<Utf8> title);
 typedef DSetWindowTitle = void Function(int window, Pointer<Utf8> title);
 final DSetWindowTitle setWindowTitle = _theAPI.ref.setWindowTitle.asFunction();
 
+// setTopmost
+typedef Void TSetTopmost(IntPtr window, Int32 topmost);
+typedef DSetTopmost = void Function(int window, int topmost);
+final DSetTopmost _setTopmost = _theAPI.ref.setTopMost.asFunction();
+void setTopmost(int window, bool topmost) =>
+    _setTopmost(window, topmost ? 1 : 0);
+
 class BDWAPI extends Struct {
   external Pointer<NativeFunction<TGetAppWindowHandle>> getAppWindowHandle;
   external Pointer<NativeFunction<TGetScreenRect>> getScreenRect;
@@ -104,6 +111,7 @@ class BDWAPI extends Struct {
   external Pointer<NativeFunction<TSetRect>> setRect;
   external Pointer<NativeFunction<TSetMinSize>> setMinSize;
   external Pointer<NativeFunction<TSetMaxSize>> setMaxSize;
+  external Pointer<NativeFunction<TSetTopmost>> setTopMost;
   external Pointer<NativeFunction<TShowWindow>> showWindow;
   external Pointer<NativeFunction<THideWindow>> hideWindow;
   external Pointer<NativeFunction<TMinimizeWindow>> minimizeWindow;
