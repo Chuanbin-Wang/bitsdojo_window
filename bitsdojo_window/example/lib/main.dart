@@ -13,6 +13,7 @@ void main() {
     win.size = initialSize;
     win.alignment = Alignment.center;
     win.title = "Custom window with Flutter";
+    // win.topmost = true;
     win.show();
   });
 }
@@ -52,6 +53,11 @@ class LeftSide extends StatelessWidget {
             child: Column(
               children: [
                 WindowTitleBarBox(child: MoveWindow()),
+                IconButton(
+                    onPressed: () {
+                      appWindow.topmost = true;
+                    },
+                    icon: Icon(Icons.ac_unit)),
                 Expanded(child: Container())
               ],
             )));
