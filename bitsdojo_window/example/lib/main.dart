@@ -13,7 +13,7 @@ void main() {
     win.size = initialSize;
     win.alignment = Alignment.center;
     win.title = "Custom window with Flutter";
-    // win.topmost = true;
+    win.topmost = true;
     win.show();
   });
 }
